@@ -16,57 +16,56 @@
     <meta name="twitter:image" content="https://digitmap.github.io/images/所罗门的智慧.jpg" />
 <!--2023年5月4日17时06分24秒-->
   <link rel="icon" href="2.ico" type="image/x-icon" />
+    <style>
+  .tile {
+    height: 100px;
+    width: 25%;
+    float: left;
+  }
+</style>
+
   </head>
   <body>
-    <button id="make-promise">Make a promise!</button>
-    <div id="log"></div>
-  
-      <script>
-        "use strict";
-  
-  let promiseCount = 0;
-  
-  function testPromise() {
-    const thisPromiseCount = ++promiseCount;
-    const log = document.getElementById("log");
-    // begin
-    log.insertAdjacentHTML("beforeend", `${thisPromiseCount}) Started<br>`);
-    // We make a new promise: we promise a numeric count of this promise,
-    // starting from 1 (after waiting 3s)
-    const p1 = new Promise((resolve, reject) => {
-      // The executor function is called with the ability
-      // to resolve or reject the promise
-      log.insertAdjacentHTML(
-        "beforeend",
-        `${thisPromiseCount}) Promise constructor<br>`,
-      );
-      // This is only an example to create asynchronism
-      setTimeout(
-        () => {
-          // We fulfill the promise
-          resolve(thisPromiseCount);
-        },
-        Math.random() * 2000 + 1000,
-      );
-    });
-  
-    // We define what to do when the promise is resolved with the then() call,
-    // and what to do when the promise is rejected with the catch() call
-    p1.then((val) => {
-      // Log the fulfillment value
-      log.insertAdjacentHTML("beforeend", `${val}) Promise fulfilled<br>`);
-    }).catch((reason) => {
-      // Log the rejection reason
-      console.log(`Handle rejected promise (${reason}) here.`);
-    });
-    // end
-    log.insertAdjacentHTML("beforeend", `${thisPromiseCount}) Promise made<br>`);
-  }
-  
-  const btn = document.getElementById("make-promise");
-  btn.addEventListener("click", testPromise);
-  
-      </script>
+    <div id="container">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    </div>
+    
+  <script>
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
+
+function bgChange() {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  return rndCol;
+}
+
+const container = document.querySelector("#container");
+
+container.addEventListener("click", (event) => {
+  event.target.style.backgroundColor = bgChange();
+});
+
+</script>
   </body>
 </html>
 
