@@ -1,24 +1,25 @@
-body {
-  max-width: 800px;
-  margin: 0 auto;
+html, body {
+  margin: 0;
 }
-/*2023年5月4日17时07分09秒*/
-.sender-column {
-  text-align: right;
+
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  height: inherit;
 }
 
 h1 {
-  font-size: 1.5em;
-}
+  font-size: 2rem;
+  letter-spacing: -1px;
+  position: absolute;
+  margin: 0;
+  top: -4px;
+  right: 5px;
 
-h2 {
-  font-size: 1.3em;
-}
-
-p,ul,ol,dl,address {
-  font-size: 1.1em;
-}
-
-p, li, dd, dt, address {
-  line-height: 1.5;
+  color: transparent;
+  text-shadow: 0 0 4px white;
 }
